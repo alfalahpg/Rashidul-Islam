@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans Bengali", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --color-madrasa-green: #064e3b;
+  --color-madrasa-gold: #c5a059;
+  --color-madrasa-white: #fdfbf7;
+}
+
+@layer base {
+  :root {
+    --bg-main: #fdfbf7;
+    --text-main: #111827;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+  }
+
+  .dark {
+    --bg-main: #0a0a0a;
+    --text-main: #f3f4f6;
+    --card-bg: #1a1a1a;
+    --header-bg: #121212;
+  }
+
+  * {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply transition-colors duration-300;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-marksheet, #printable-marksheet * {
+    visibility: visible;
+  }
+  #printable-marksheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block !important;
+  }
+}
